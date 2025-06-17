@@ -13,8 +13,17 @@ import static com.sportradar.wordle.wordlegame.GameRules.YELLOW_BG_COLOR;
 
 public class WordleGame {
 
+    private final WordleSolver wordleSolver;
+    private final Scanner scanner;
+
+    public WordleGame() {
+        this.wordleSolver = new WordleSolver();
+        this.scanner = new Scanner(System.in);
+    }
+
     public static void main(String[] args) {
-        new WordleGame().startGame();
+        WordleGame game = new WordleGame();
+        game.startGame();
     }
 
     private void startGame() {
@@ -30,7 +39,7 @@ public class WordleGame {
             String guessWord = readGuessWord();
             if (guessWord == null) continue;
 
-            Feedback[] feedback = new WordleSolver().solveWordle(secretWord, guessWord);
+            Feedback[] feedback = wordleSolver.solveWordle(secretWord, guessWord);
 
             printGuessedWordInColor(feedback, guessWord);
 
@@ -51,17 +60,16 @@ public class WordleGame {
         System.out.println("After each guess, you'll get feedback:");
         System.out.printf(
                 """
-                    - %sGREEN%s: Letter is correct and in the correct position.
-                    - %sYELLOW%s: Letter is correct but in the wrong position.
-                    - NO COLOR: Letter is incorrect.
-                """, GREEN_BG_COLOR, RESET_BG_COLOR, YELLOW_BG_COLOR, RESET_BG_COLOR);
+                            - %sGREEN%s: Letter is correct and in the correct position.
+                            - %sYELLOW%s: Letter is correct but in the wrong position.
+                            - NO COLOR: Letter is incorrect.
+                        """, GREEN_BG_COLOR, RESET_BG_COLOR, YELLOW_BG_COLOR, RESET_BG_COLOR);
         System.out.println("Good luck!");
         System.out.println("-".repeat(50));
     }
 
     private String readGuessWord() {
         System.out.printf("Enter your %d letter guess word: ", WORD_LENGTH);
-        Scanner scanner = new Scanner(System.in);
         String guess = scanner.nextLine().trim().toUpperCase();
 
         if (guess.length() != WORD_LENGTH) {
