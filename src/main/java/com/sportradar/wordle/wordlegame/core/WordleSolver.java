@@ -1,10 +1,13 @@
-package com.sportradar.wordle.wordlegame;
+package com.sportradar.wordle.wordlegame.core;
+
+import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import static com.sportradar.wordle.wordlegame.GameRules.WORD_LENGTH;
+import static com.sportradar.wordle.wordlegame.utils.GameRules.WORD_LENGTH;
 
+@Component
 public class WordleSolver {
 
     public Feedback[] solveWordle(String correctWord, String guessWord) {

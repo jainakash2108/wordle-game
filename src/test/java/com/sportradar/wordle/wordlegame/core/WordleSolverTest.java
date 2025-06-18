@@ -1,10 +1,10 @@
-package com.sportradar.wordle.wordlegame;
+package com.sportradar.wordle.wordlegame.core;
 
 import org.junit.jupiter.api.Test;
 
-import static com.sportradar.wordle.wordlegame.Feedback.CORRECT_WORD_IN_CORRECT_POSITION;
-import static com.sportradar.wordle.wordlegame.Feedback.CORRECT_WORD_IN_INCORRECT_POSITION;
-import static com.sportradar.wordle.wordlegame.Feedback.INCORRECT_WORD;
+import static com.sportradar.wordle.wordlegame.core.Feedback.CORRECT_WORD_IN_CORRECT_POSITION;
+import static com.sportradar.wordle.wordlegame.core.Feedback.CORRECT_WORD_IN_INCORRECT_POSITION;
+import static com.sportradar.wordle.wordlegame.core.Feedback.INCORRECT_WORD;
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 

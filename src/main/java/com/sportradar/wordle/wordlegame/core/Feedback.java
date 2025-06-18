@@ -1,4 +1,4 @@
-package com.sportradar.wordle.wordlegame;
+package com.sportradar.wordle.wordlegame.core;
 
 public enum Feedback {
     CORRECT_WORD_IN_CORRECT_POSITION,
